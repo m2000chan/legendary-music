@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct node {
-  int value;
-  struct node *next;
-};
-
-
-void print_list (struct node * curr_node) {
+void print_list (struct song_node * curr_nodey) {
   printf("[");
-  while (curr_node -> next) { //while there is another node after, print value then proceed to next
+  while (curr_node) { //while there is another node after, print value then proceed to next
     printf("%d, ", curr_node -> value);
     curr_node = curr_node -> next;
   }
