@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void print_list (struct song_node * curr_nodey) {
+void print_list (struct song_node * curr_node) {
   printf("[");
   while (curr_node) { //while there is another node after, print value then proceed to next
     printf("%d, ", curr_node -> value);
