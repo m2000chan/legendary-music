@@ -14,8 +14,8 @@ void print_list (struct song_node * curr_node) {
 
 struct song_node * insert_front (struct song_node * exist_node, char * Title, char * Singer) {
   struct song_node *add = malloc (sizeof (struct song_node)); //allocate memory for new node
-  add -> name = Singer; //initialize node
-    add -> artist = Title; 
+  add -> name = Title; //initialize node
+    add -> artist = Singer; 
   add -> next = exist_node;
   return add;
 }
@@ -40,3 +40,17 @@ struct song_node * create_link(char * Title, char * Singer){ //in order to initi
   end -> next = NULL;
   return end;
 }
+
+struct song_node * insert_order(song_node * exist_node, char * Title, char * Singer) {
+  struct song_node *add,temp = malloc (sizeof( struct song_node));
+  add -> name = Title;
+  add -> artist = Singer;
+  while (strcmp(Singer, exist_node -> artist) < 0 ||
+	 strcmp(Title, exist_node -> name) < 0) {//while artist/song smaller
+    temp = exist_node;
+    exist_node = exist_node -> next;
+  }
+  temp -> next = add;
+  add -> next = exist_node;
+}
+
