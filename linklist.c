@@ -53,6 +53,8 @@ song_node * insert_order(song_node * first, char * title, char * singer) {
     temp = exist_node;
     exist_node = exist_node -> next;
   }
+    
+    
   temp -> next = add;
   add -> next = exist_node;
   // print_list(add);
@@ -122,29 +124,32 @@ song_node * remove_node(song_node * exist_node, char * title, char * singer) {
 
 
 int main(){
-    song_node * y = create_link("Skyfall", "Adele");
+    song_node * y = create_link("skyfall", "adele");
     print_list(y);
     printf("\n");
     //y = insert_front(y, "Symphony 40", "Mozart");
     //print_list(y);
     printf("\n");
-    y = insert_order(y, "Symphony 40.5", "Bozart");
-    y = insert_order(y, "Piece", "Aa");
+    y = insert_order(y, "symphony 40.5", "bozart");
+    y = insert_order(y, "piece", "aa");
+    print_list(y);
+    printf("\n");
+    y = insert_order(y, "song", "aa");
     print_list(y);
     printf("\n");
 
-    y = insert_order(y, "Uptown Girl", "Billy Joel");
+    y = insert_order(y, "uptown girl", "billy joel");
     print_list(y);
     printf("\n");
-    y = insert_order(y, "Waka Waka", "Shakira");
+    y = insert_order(y, "waka waka", "shakira");
     print_list(y);
     printf("\n");
 
-    song_node *song_search = find_song(y, "Uptown Girl", "Billy Joel");
+    song_node *song_search = find_song(y, "uptown girl", "billy joel");
     print_list(song_search); //prints list starting from Billy Joel
     printf("\n");
 
-    song_node *artist_search = find_artist(y, "Adele");
+    song_node *artist_search = find_artist(y, "adele");
     print_list(artist_search); //prints list starting from Adele
     printf("\n");
     printf("%d\n", get_length(y));
@@ -154,7 +159,7 @@ int main(){
     print_list(random);
     printf("\n");
 
-    remove_node(y, "Uptown Girl", "Billy Joel");
+    remove_node(y, "uptown girl", "billy joel");
     print_list(y);
 
 
