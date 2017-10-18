@@ -68,8 +68,8 @@ song_node * insert_order(song_node * first, char * title, char * singer) {
 
 song_node * find_song(song_node * exist_node, char * title, char * singer) {
   while (exist_node &&
-         (strcmp(singer, exist_node -> artist) < 0 ||
-	       strcmp(title, exist_node -> name) < 0)) {
+         (strcmp(singer, exist_node -> artist) > 0 ||
+	       strcmp(title, exist_node -> name) > 0)) {
            exist_node = exist_node -> next;
          }
   return exist_node;//should be NULL if didn't find
