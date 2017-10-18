@@ -48,8 +48,8 @@ song_node * insert_order(song_node * first, char * title, char * singer) {
   add -> name = title;
   add -> artist = singer;
   while (exist_node &&
-         (strcmp(singer, exist_node -> artist) < 0 ||
-	       strcmp(title, exist_node -> name) < 0)) {//while artist/song smaller
+         (strcmp(singer, exist_node -> artist) > 0 ||
+	       strcmp(title, exist_node -> name) > 0)) {//while artist/song smaller
     temp = exist_node;
     exist_node = exist_node -> next;
   }
@@ -92,7 +92,7 @@ song_node * random_song(song_node * exist_node){
   int length = get_length(exist_node);
   srand(time(NULL));
   long random = rand() % (length + 1);
-  while (random > 0){
+  while (random > 1){
     exist_node = exist_node -> next;
     random--;
   }
@@ -125,10 +125,11 @@ int main(){
     song_node * y = create_link("Skyfall", "Adele");
     print_list(y);
     printf("\n");
-    y = insert_front(y, "Symphony 40", "Mozart");
-    print_list(y);
+    //y = insert_front(y, "Symphony 40", "Mozart");
+    //print_list(y);
     printf("\n");
-    y = insert_order(y, "Symphony 40.5", "Aaozart");
+    y = insert_order(y, "Symphony 40.5", "Bozart");
+    y = insert_order(y, "Piece", "Aa");
     print_list(y);
     printf("\n");
 
