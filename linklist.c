@@ -49,7 +49,8 @@ song_node * insert_order(song_node * first, char * title, char * singer) {
   add -> artist = singer;
   while (exist_node &&
          (strcmp(singer, exist_node -> artist) > 0 ||
-	       strcmp(title, exist_node -> name) > 0)) {//while artist/song smaller
+          (strcmp(singer, exist_node -> artist) == 0 &&
+	       strcmp(title, exist_node -> name) > 0))) {//while artist/song smaller
     temp = exist_node;
     exist_node = exist_node -> next;
   }
