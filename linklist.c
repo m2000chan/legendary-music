@@ -71,6 +71,12 @@ song_node * find_song(song_node * exist_node, char * title, char * singer) {
   return exist_node;//should be NULL if didn't find
 }
 
+song_node * find_artist(song_node * exist_node, char * singer) {
+  while (exist_node && strcmp(singer, exist_node -> artist) != 0) {
+    exist_node = exist_node -> next;
+  }
+  return exist_node;
+}
 
 
 
@@ -93,7 +99,11 @@ int main(){
     printf("\n");
 
     song_node *song_search = find_song(y, "Uptown Girl", "Billy Joel");
-    print_list(song_search);
+    print_list(song_search); //prints list starting from Billy Joel
+    printf("\n");
+
+    song_node *artist_search = find_artist(y, "Adele");
+    print_list(artist_search); //prints list starting from Adele
     printf("\n");
 
 
