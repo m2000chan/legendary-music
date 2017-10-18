@@ -99,7 +99,7 @@ song_node * random_song(song_node * exist_node){
   return exist_node;
 }
 
-void * remove_node(song_node * exist_node, char * title, char * singer) {
+song_node * remove_node(song_node * exist_node, char * title, char * singer) {
   song_node *temp = malloc (sizeof( song_node));
   while (exist_node &&
          (strcmp(singer, exist_node -> artist) != 0 &&
@@ -110,7 +110,10 @@ void * remove_node(song_node * exist_node, char * title, char * singer) {
   if (exist_node){
     temp -> next = exist_node -> next;
   }
+  return NULL;
 }
+
+
 
 
 
