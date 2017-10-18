@@ -138,6 +138,9 @@ int main(){
     y = insert_order(y, "song", "aa");
     print_list(y);
     printf("\n");
+    y = insert_order(y, "aaaaa", "aa");
+    print_list(y);
+    printf("\n");
 
     y = insert_order(y, "uptown girl", "billy joel");
     print_list(y);
