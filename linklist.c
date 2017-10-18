@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "song_node.h"
+#include <time.h>
 
 void print_list (song_node * curr_node) {
   //printf("[");
@@ -78,6 +79,26 @@ song_node * find_artist(song_node * exist_node, char * singer) {
   return exist_node;
 }
 
+int get_length(song_node * exist_node){
+  int count = 0;
+  while(exist_node){
+    exist_node = exist_node -> next;
+    count++;
+  }
+  return count;
+}
+
+song_node * random_song(song_node * exist_node){
+  int length = get_length(exist_node);
+  srand(time(NULL));
+  long random = rand() % (length + 1);
+  while (random > 0){
+    exist_node = exist_node -> next;
+    random--;
+  }
+  return exist_node;
+}
+
 
 
 int main(){
@@ -104,6 +125,12 @@ int main(){
 
     song_node *artist_search = find_artist(y, "Adele");
     print_list(artist_search); //prints list starting from Adele
+    printf("\n");
+    printf("%d\n", get_length(y));
+
+
+    song_node *random = random_song(y);
+    print_list(random);
     printf("\n");
 
 
