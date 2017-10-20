@@ -194,17 +194,17 @@ int main(){
 
     printf("TESTING SONG SEARCH: Search Adele - Skyfall:\n\n");
 
-    song_node * y = song_search("skyfall", "adele");
+    song_node * lib = song_search("skyfall", "adele");
 
-    print_list(y);
+    print_list(lib);
 
     printf("\n============\n\n");
 
     printf("TESTING ARTIST SEARCH: Search ke$ha:\n\n");
 
-    y = artist_search("ke$ha");
+    lib = artist_search("ke$ha");
 
-    print_list(y);
+    print_list(lib);
 
     printf("\n============\n\n");
 
@@ -247,8 +247,6 @@ int main(){
     
 
 
-    /*
-
   printf("\n\nLINKED LIST TESTS\n\n\n");
 
   printf("CREATING FIRST SONG:\n");
@@ -278,12 +276,12 @@ int main(){
   print_list(y);
   printf("\n============\n");
 
-  printf("TESTING SONG SEARCH:\n");
+  printf("TESTING SONG SEARCH: uptown girl billy joel\n");
   song_node *song_search = find_song(y, "uptown girl", "billy joel");
   print_list(song_search); //prints list starting from Billy Joel
   printf("\n============\n");
 
-  printf("TESTING ARTIST SEARCH:\n");
+  printf("TESTING ARTIST SEARCH: adele\n");
   song_node *artist_search = find_artist(y, "adele");
   print_list(artist_search); //prints list starting from Adele
   printf("\n============\n");
@@ -296,7 +294,7 @@ int main(){
   print_list(random);
   printf("\n============\n");
 
-  printf("TESTING REMOVE NODE:\n");
+  printf("TESTING REMOVE NODE: uptown girl billy joel \n");
   remove_node(y, "uptown girl", "billy joel");
   print_list(y);
   printf("\n============\n\n\n");
@@ -304,8 +302,6 @@ int main(){
   printf("MUSIC LIBRARY TESTS\n\n\n");
   add_song("ich lass für dich das licht an", "revolverheld");
 
-<<<<<<< HEAD
-    */
   return 0;
 
 }
