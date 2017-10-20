@@ -117,7 +117,6 @@ void print_artist(char * singer){
 
 song_node * remove_song(char * title, char * singer){
 
-
     char x = singer[0];
 
     return remove_node(song_lists[x-97], title, singer);
@@ -126,9 +125,9 @@ song_node * remove_song(char * title, char * singer){
 
 
 void shuffle(int num_songs){
-    
+
     song_node * store[num_songs];
-    
+
     int i = 0;
 
     srand(time(NULL));
@@ -137,7 +136,6 @@ void shuffle(int num_songs){
 
   for (; i < num_songs; i++) {
 
-      rand();
 
       picker = rand() % 26;
 
@@ -152,20 +150,27 @@ void shuffle(int num_songs){
       //printf("leave?\n");
       song_node * random_pick = random_song(song_lists[picker]);
       printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
-           
-      store[i] = random_pick; 
-      
-      
-      remove_song(random_pick -> name, random_pick -> artist);
-      
+
+      store[i] = random_pick;
+
+      char * temp_name = random_pick -> name;
+      char * temp_artist = random_pick -> artist;
+
+      printf("%s\n", temp_name);
+      printf("%s\n", temp_artist);
+
+      remove_song(temp_name, temp_artist);
+      remove_song("we are", "ke$ha");
+      print_library();
+
   }
-    
+
     i = 0;
-    
+
     for (; i < num_songs; i++){
-        
+
         add_song(store[i] -> name, store[i] -> artist);
-        
+
     }
 }
 
@@ -241,7 +246,7 @@ int main(){
   remove_node(y, "uptown girl", "billy joel");
   print_list(y);
   printf("\n============\n\n\n");
-    
+
     printf("TESTING ADDING SONGS/PRINT LIBRARY\n\n");
 
     //FOR SOME REASON THE ADD SONGS WORKS DOESN'T WORK IF THE ARTIST DOUBLE UP, BUT IS OKAY WITH A
@@ -304,7 +309,13 @@ int main(){
 
     printf("TESTING REMOVE SONG: Removing drive by - train\n\n");
 
+    print_library();
+
     remove_song("drive by", "train");
+
+    remove_song("skyfall", "adele");
+
+    remove_song("we are", "ke$ha");
 
     print_library();
 
