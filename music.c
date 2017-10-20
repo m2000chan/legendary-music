@@ -38,7 +38,6 @@ void print_library(){
     for (; i < 26; i++){
 
         if (song_lists[i]){
-
             printf("%c:\n", i + 97);
 
             print_list(song_lists[i]);
@@ -119,7 +118,15 @@ song_node * remove_song(char * title, char * singer){
 
     char x = singer[0];
 
-    return remove_node(song_lists[x-97], title, singer);
+    song_node * start = song_lists[x-97];
+    if (song_search(title, singer) == start) {
+      printf("THTHT");
+      song_lists[x-97] = NULL;
+      return start;
+
+    }
+
+    return remove_node(start, title, singer);
 
 }
 
@@ -317,7 +324,7 @@ int main(){
     remove_song("skyfall", "adele");
 
     remove_song("we are", "ke$ha");
-    
+
     print_list(song_lists['k'-97]);
 
     print_library();
