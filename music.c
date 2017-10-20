@@ -6,6 +6,8 @@
 
 song_node * song_lists[26];
 
+song_node * remove_song(char * title, char * singer);
+
 song_node * add_song(char * title, char * singer){
 
     char x = singer[0];
@@ -113,7 +115,20 @@ void print_artist(char * singer){
 
 }
 
+song_node * remove_song(char * title, char * singer){
+
+
+    char x = singer[0];
+
+    return remove_node(song_lists[x-97], title, singer);
+
+}
+
+
 void shuffle(int num_songs){
+    
+    song_node * store[num_songs];
+    
     int i = 0;
 
     srand(time(NULL));
@@ -137,16 +152,21 @@ void shuffle(int num_songs){
       //printf("leave?\n");
       song_node * random_pick = random_song(song_lists[picker]);
       printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
+           
+      store[i] = random_pick; 
+      
+      
+      remove_song(random_pick -> name, random_pick -> artist);
+      
   }
-}
-
-song_node * remove_song(char * title, char * singer){
-
-
-    char x = singer[0];
-
-    return remove_node(song_lists[x-97], title, singer);
-
+    
+    i = 0;
+    
+    for (; i < num_songs; i++){
+        
+        add_song(store[i] -> name, store[i] -> artist);
+        
+    }
 }
 
 void free_library(){
