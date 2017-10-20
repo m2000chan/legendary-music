@@ -38,10 +38,10 @@ void print_library(){
         if (song_lists[i]){
 
             printf("%c:\n", i + 97);
+            
+            print_list(song_lists[i]);
 
         }
-
-        print_list(song_lists[i]);
 
     }
 
@@ -113,35 +113,6 @@ void print_artist(char * singer){
 
 }
 
-
-// void shuffle(){
-//
-//     int length = 0;
-//     int i = 0;
-//
-//     for (; i < 26; i++){
-//
-//         length += get_length(song_lists[i]);
-//
-//     }
-//
-//     srand(time(NULL));
-//     int r = rand();
-//     long random = rand() % length - 2;
-//
-//     int j = 0;
-//
-//     for (; j < random + 1; j ++){
-//
-//         int randy = rand() % 26;
-//
-//         song_node * rands = random_song(song_lists[randy]);
-//
-//         printf("\t%s\t | \t%s\n", rands -> artist, rands -> name);
-//     }
-//
-// }
-
 void shuffle(int num_songs){
     int i = 0;
     
@@ -167,6 +138,33 @@ void shuffle(int num_songs){
       song_node * random_pick = random_song(song_lists[picker]);
       printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
   }
+}
+
+song_node * remove_song(char * title, char * singer){
+    
+    
+    char x = singer[0];
+    
+    return remove_node(song_lists[x-97], title, singer);
+    
+}
+
+void free_library(){
+    
+    int i = 0;
+    
+    for (; i < 26; i ++){
+        
+        if (song_lists[i]){
+            
+            printf("Freeing %d:\n", i);
+            
+            song_lists[i] = free_list(song_lists[i]);
+            
+        }
+        
+    }
+    
 }
 
 
@@ -226,14 +224,27 @@ int main(){
 
     printf("\n============\n\n");
 
-    printf("TESTING SHUFFLE:\n\n");
+    printf("TESTING SHUFFLE: Generate 5 song play list\n\n");
 
     shuffle(5);
     
     printf("\n============\n\n");
 
+    printf("TESTING REMOVE SONG: Removing drive by - train\n\n");
 
+    remove_song("drive by", "train");
+    
+    print_library();
+    
+    printf("\n============\n\n");
+    
+    printf("TESTING FREE LIBRARY:\n\n");
 
+    free_library();
+    
+    print_library();
+
+    
 
 
     /*

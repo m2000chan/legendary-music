@@ -27,6 +27,7 @@ song_node * free_list(song_node * start){
   while (start -> next) {
     temp = start;
     start = temp -> next;
+    temp = NULL;
     free (temp);
   }
   free(start); //free last node
@@ -105,8 +106,9 @@ song_node * random_song(song_node * exist_node){
 song_node * remove_node(song_node * exist_node, char * title, char * singer) {
   song_node *temp = malloc (sizeof( song_node));
   while (exist_node &&
-         (strcmp(singer, exist_node -> artist) != 0 &&
-	       strcmp(title, exist_node -> name) != 0)) {//while artist/song smaller
+         (strcmp(singer, exist_node -> artist) > 0 ||
+          (strcmp(singer, exist_node -> artist) == 0 &&
+	       strcmp(title, exist_node -> name) > 0))) {//while artist/song smaller
     temp = exist_node;
     exist_node = exist_node -> next;
   }
