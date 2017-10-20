@@ -104,6 +104,22 @@ song_node * random_song(song_node * exist_node){
 }
 
 song_node * remove_node(song_node * exist_node, char * title, char * singer) {
+    
+    
+    /*
+    if (strcmp(exist_node -> name, title) == 0 && strcmp(exist_node -> artist, singer) == 0){
+        
+        //printf("CAN I SEE THIS\n");
+
+        
+        exist_node = exist_node -> next;
+
+        return NULL;
+        
+    }*/
+    
+
+    
   song_node *temp = malloc (sizeof( song_node));
   while (exist_node &&
          (strcmp(singer, exist_node -> artist) > 0 ||

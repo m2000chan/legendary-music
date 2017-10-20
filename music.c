@@ -150,7 +150,7 @@ void shuffle(int num_songs){
       //printf("leave?\n");
       song_node * random_pick = random_song(song_lists[picker]);
       printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
-
+      /*
       store[i] = random_pick;
 
       char * temp_name = random_pick -> name;
@@ -162,9 +162,10 @@ void shuffle(int num_songs){
       remove_song(temp_name, temp_artist);
       remove_song("we are", "ke$ha");
       print_library();
+      */
 
   }
-
+/*
     i = 0;
 
     for (; i < num_songs; i++){
@@ -172,6 +173,7 @@ void shuffle(int num_songs){
         add_song(store[i] -> name, store[i] -> artist);
 
     }
+    */
 }
 
 void free_library(){
@@ -263,6 +265,7 @@ int main(){
     add_song("sk8tr boy", "lavigne");
     add_song("human", "the killers");
     add_song("mr. brightside", "the killers");
+    //add_song("hwang", "katie");
 
     print_library();
 
@@ -309,13 +312,13 @@ int main(){
 
     printf("TESTING REMOVE SONG: Removing drive by - train\n\n");
 
-    print_library();
-
     remove_song("drive by", "train");
 
     remove_song("skyfall", "adele");
 
     remove_song("we are", "ke$ha");
+    
+    print_list(song_lists['k'-97]);
 
     print_library();
 
