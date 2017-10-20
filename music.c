@@ -38,7 +38,7 @@ void print_library(){
         if (song_lists[i]){
 
             printf("%c:\n", i + 97);
-            
+
             print_list(song_lists[i]);
 
         }
@@ -115,25 +115,25 @@ void print_artist(char * singer){
 
 void shuffle(int num_songs){
     int i = 0;
-    
+
     srand(time(NULL));
-    
+
     int picker = rand() % 26;
-    
+
   for (; i < num_songs; i++) {
-      
+
       rand();
-      
+
       picker = rand() % 26;
-      
+
       while (! song_lists[picker] ){
-            
+
             picker = rand() % 26;
-            
+
             //printf("%d\n", picker);
-            
+
       }
-      
+
       //printf("leave?\n");
       song_node * random_pick = random_song(song_lists[picker]);
       printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
@@ -141,30 +141,30 @@ void shuffle(int num_songs){
 }
 
 song_node * remove_song(char * title, char * singer){
-    
-    
+
+
     char x = singer[0];
-    
+
     return remove_node(song_lists[x-97], title, singer);
-    
+
 }
 
 void free_library(){
-    
+
     int i = 0;
-    
+
     for (; i < 26; i ++){
-        
+
         if (song_lists[i]){
-            
+
             printf("Freeing %d:\n", i);
-            
+
             song_lists[i] = free_list(song_lists[i]);
-            
+
         }
-        
+
     }
-    
+
 }
 
 
@@ -227,24 +227,24 @@ int main(){
     printf("TESTING SHUFFLE: Generate 5 song play list\n\n");
 
     shuffle(5);
-    
+
     printf("\n============\n\n");
 
     printf("TESTING REMOVE SONG: Removing drive by - train\n\n");
 
     remove_song("drive by", "train");
-    
+
     print_library();
-    
+
     printf("\n============\n\n");
-    
+
     printf("TESTING FREE LIBRARY:\n\n");
 
     free_library();
-    
+
     print_library();
 
-    
+
 
 
   printf("\n\nLINKED LIST TESTS\n\n\n");
@@ -298,9 +298,6 @@ int main(){
   remove_node(y, "uptown girl", "billy joel");
   print_list(y);
   printf("\n============\n\n\n");
-
-  printf("MUSIC LIBRARY TESTS\n\n\n");
-  add_song("ich lass für dich das licht an", "revolverheld");
 
   return 0;
 
