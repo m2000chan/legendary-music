@@ -13,8 +13,8 @@ song_node * add_song(char * title, char * singer){
         
         song_node * first_song = song_lists[x-97];//subtract value of 'a' to get letter index
         
-        return insert_order(first_song, title, singer);
-        
+        song_lists[x-97] = insert_order(first_song, title, singer);
+        return song_lists[x-97];
     }
     
     else{
@@ -110,29 +110,55 @@ void print_artist(char * singer){
         search_node = search_node -> next;
     }
     
-    printf("\t%s\t | \t%s\n", search_node -> artist, search_node -> name);
+}
+
+void shuffle(){
+    
+    int length = 0;
+    int i = 0;
+    
+    for (; i < 26; i++){
+        
+        length += get_length(song_lists[i]);
+        
+    }
+    
+    srand(time(NULL));
+    long random = rand() % length;
+    
+    int j = 0;
+    
+    for (; j < random; j ++){
+    
+        
+        int randy = rand() % 26;
+        
+        song_node * rands = random_song(song_lists[randy]);
+        
+        printf("\t%s\t | \t%s\n", rands -> artist, rands -> name);
+    }
     
 }
 
 
 int main(){
     
-    printf("TESTING ADDING SONGS\n\n");
+    printf("TESTING ADDING SONGS/PRINT LIBRARY\n\n");
     
     //FOR SOME REASON THE ADD SONGS WORKS DOESN'T WORK IF THE ARTIST DOUBLE UP, BUT IS OKAY WITH A
     
-    add_song("skyfall", "adele"); //works
+    add_song("skyfall", "adele");
     add_song("hello", "adele");
-    add_song("symphony 40", "mozart"); //works
-    add_song("ants", "apples"); //works 
-    add_song("drive by", "train"); //works 
-    add_song("what", "tree"); //works
-    add_song("barcelona", "train"); //DOESNT work
-    add_song("orange orange", "chair"); //works
-    add_song("we are", "ke$ha"); //works
-    add_song("sk8tr boy", "lavigne"); //works
-    add_song("human", "the killers"); //DOESN'T work
-    add_song("mr. brightside", "the killers"); //DOESN'T work
+    add_song("symphony 40", "mozart"); 
+    add_song("ants", "apples");
+    add_song("drive by", "train"); 
+    add_song("what", "tree");
+    add_song("barcelona", "train");
+    add_song("orange orange", "chair");
+    add_song("we are", "ke$ha"); 
+    add_song("sk8tr boy", "lavigne");
+    add_song("human", "the killers");
+    add_song("mr. brightside", "the killers"); 
     
     print_library();   
     
@@ -163,8 +189,21 @@ int main(){
     
     printf("TESTING PRINT ARTIST: Printing adele:\n\n");
 
+    print_artist("adele");
     
-
+    printf("\nPrinting the killers\n\n");
+    
+    print_artist("the killers");
+    
+    printf("\n============\n\n");
+    
+    printf("TESTING SHUFFLE:\n\n");
+    
+    shuffle();
+    
+    printf("\n============\n\n");
+    
+    
 
 
     
