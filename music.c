@@ -157,7 +157,7 @@ void free_library(){
 
         if (song_lists[i]){
 
-            printf("Freeing %d:\n", i);
+            printf("Freeing %c:\n", i+97);
 
             song_lists[i] = free_list(song_lists[i]);
 
@@ -170,6 +170,58 @@ void free_library(){
 
 int main(){
 
+    printf("\n\nLINKED LIST TESTS\n\n\n");
+
+  printf("CREATING FIRST SONG:\n");
+  song_node * y = create_link("skyfall", "adele");
+  print_list(y);
+  printf("\n============\n");
+  //y = insert_front(y, "Symphony 40", "Mozart");
+  //print_list(y);
+  printf("\n============\n");
+
+
+  printf("TESTING INSERT ORDER:\n");
+  y = insert_order(y, "symphony 40.5", "bozart");
+  y = insert_order(y, "piece", "aa");
+  print_list(y);
+  printf("\n============\n");
+  y = insert_order(y, "human", "the killers");
+  print_list(y);
+  printf("\n============\n");
+  y = insert_order(y, "mr. brightside", "the killers");
+  print_list(y);
+  printf("\n============\n");
+  y = insert_order(y, "uptown girl", "billy joel");
+  print_list(y);
+  printf("\n============\n");
+  y = insert_order(y, "waka waka", "shakira");
+  print_list(y);
+  printf("\n============\n");
+
+  printf("TESTING SONG SEARCH: uptown girl billy joel\n");
+  song_node *songs_search = find_song(y, "uptown girl", "billy joel");
+  print_list(songs_search); //prints list starting from Billy Joel
+  printf("\n============\n");
+
+  printf("TESTING ARTIST SEARCH: adele\n");
+  song_node *artists_search = find_artist(y, "adele");
+  print_list(artists_search); //prints list starting from Adele
+  printf("\n============\n");
+
+  printf("TESTING GET LENGTH:\n");
+  printf("%d\n============\n", get_length(y));
+
+  printf("TESTING RANDOM SONG SELECT:\n");
+  song_node *random = random_song(y);
+  print_list(random);
+  printf("\n============\n");
+
+  printf("TESTING REMOVE NODE: uptown girl billy joel \n");
+  remove_node(y, "uptown girl", "billy joel");
+  print_list(y);
+  printf("\n============\n\n\n");
+    
     printf("TESTING ADDING SONGS/PRINT LIBRARY\n\n");
 
     //FOR SOME REASON THE ADD SONGS WORKS DOESN'T WORK IF THE ARTIST DOUBLE UP, BUT IS OKAY WITH A
@@ -244,60 +296,6 @@ int main(){
 
     print_library();
 
-
-
-
-  printf("\n\nLINKED LIST TESTS\n\n\n");
-
-  printf("CREATING FIRST SONG:\n");
-  song_node * y = create_link("skyfall", "adele");
-  print_list(y);
-  printf("\n============\n");
-  //y = insert_front(y, "Symphony 40", "Mozart");
-  //print_list(y);
-  printf("\n============\n");
-
-
-  printf("TESTING INSERT ORDER:\n");
-  y = insert_order(y, "symphony 40.5", "bozart");
-  y = insert_order(y, "piece", "aa");
-  print_list(y);
-  printf("\n============\n");
-  y = insert_order(y, "human", "the killers");
-  print_list(y);
-  printf("\n============\n");
-  y = insert_order(y, "mr. brightside", "the killers");
-  print_list(y);
-  printf("\n============\n");
-  y = insert_order(y, "uptown girl", "billy joel");
-  print_list(y);
-  printf("\n============\n");
-  y = insert_order(y, "waka waka", "shakira");
-  print_list(y);
-  printf("\n============\n");
-
-  printf("TESTING SONG SEARCH: uptown girl billy joel\n");
-  song_node *song_search = find_song(y, "uptown girl", "billy joel");
-  print_list(song_search); //prints list starting from Billy Joel
-  printf("\n============\n");
-
-  printf("TESTING ARTIST SEARCH: adele\n");
-  song_node *artist_search = find_artist(y, "adele");
-  print_list(artist_search); //prints list starting from Adele
-  printf("\n============\n");
-
-  printf("TESTING GET LENGTH:\n");
-  printf("%d\n============\n", get_length(y));
-
-  printf("TESTING RANDOM SONG SELECT:\n");
-  song_node *random = random_song(y);
-  print_list(random);
-  printf("\n============\n");
-
-  printf("TESTING REMOVE NODE: uptown girl billy joel \n");
-  remove_node(y, "uptown girl", "billy joel");
-  print_list(y);
-  printf("\n============\n\n\n");
 
   return 0;
 
