@@ -5,11 +5,11 @@
 
 song_node * song_lists[26];
 
-void initialize(){
-
-    song_node * song_lists[26]; //Array to store each letter
-
-}
+// void initialize(){
+//
+//     song_node * song_lists[26]; //Array to store each letter
+//
+// }
 
 song_node * add_song(char * title, char * singer){
 
@@ -18,7 +18,11 @@ song_node * add_song(char * title, char * singer){
     return insert_order(first_song, title, singer);
 }
 
+void print_letter(char * letter){
+  char first = letter[0];
+  print_list(song_lists[first - 97]);
 
+}
 
 
 int main(){
@@ -72,8 +76,12 @@ int main(){
   printf("TESTING REMOVE NODE:\n");
   remove_node(y, "uptown girl", "billy joel");
   print_list(y);
-  printf("\n============\n");
+  printf("\n============\n\n\n");
 
+  printf("MUSIC LIBRARY TESTS\n\n\n");
+  add_song("ich lass für dich das licht an", "revolverheld");
+
+  print_letter("i");
 
   return 0;
 
