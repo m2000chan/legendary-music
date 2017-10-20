@@ -54,8 +54,8 @@ song_node * insert_order(song_node * first, char * title, char * singer) {
     temp = exist_node;
     exist_node = exist_node -> next;
   }
-    
-    
+
+
   temp -> next = add;
   add -> next = exist_node;
   // print_list(add);
@@ -135,10 +135,10 @@ int main(){
     y = insert_order(y, "piece", "aa");
     print_list(y);
     printf("\n");
-    y = insert_order(y, "song", "aa");
+    y = insert_order(y, "human", "the killers");
     print_list(y);
     printf("\n");
-    y = insert_order(y, "aaaaa", "aa");
+    y = insert_order(y, "mr. brightside", "the killers");
     print_list(y);
     printf("\n");
 

@@ -3,18 +3,17 @@
 #include <string.h>
 #include "linklist.c"
 
-song_node * Alpha[26];
+song_node * song_lists[26];
 
 void initialize(){
-    
-    song_node * Alpha[26]; //Array to store each letter
-    
+
+    song_node * song_lists[26]; //Array to store each letter
+
 }
 
-song_node * add_song(char * Title, char * Singer){
-    
-    char x = Singer[0];
-    song_node * p = Alpha[x-97];
-    return insert_order(p, Title, Singer);
-}
+song_node * add_song(char * title, char * singer){
 
+    char x = singer[0];
+    song_node * first_song = song_lists[x-97];//subtract value of 'a' to get letter index
+    return insert_order(first_song, title, singer);
+}
