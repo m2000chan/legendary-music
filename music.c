@@ -167,7 +167,7 @@ void shuffle(int num_songs){
       //printf("leave?\n");
       song_node * random_pick = random_song(song_lists[picker]);
       printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
-      
+
       store[i] = random_pick;
 
       remove_song(random_pick -> name, random_pick -> artist);
@@ -256,6 +256,8 @@ int main(){
   print_list(y);
   printf("\n============\n\n\n");
 
+  printf("\n\n\nTESTING MUSIC LIBRARY\n\n\n");
+
     printf("TESTING ADDING SONGS/PRINT LIBRARY\n\n");
 
 
@@ -271,16 +273,27 @@ int main(){
     add_song("sk8tr boy", "lavigne");
     add_song("human", "the killers");
     add_song("mr. brightside", "the killers");
-    add_song("rap god", "eminiem");
+    add_song("rap god", "eminem");
     add_song("the way life goes", "lil uzi vert");
     add_song("glorious", "macklemore");
     add_song("piano man", "billy joel");
     add_song("i want it that way", "backstreet boys");
-    add_song("ra ra rasputing", "boney m");
+    add_song("ra ra rasputin", "boney m");
     add_song("symphony 40.5", "bozart");
     add_song("love story", "taylor swift");
+    add_song("whatever it takes", "imagine dragons");
+    add_song("believer", "imagine dragons");
+    add_song("thunder", "imagine dragons");
+    add_song("mouth of the river", "imagine dragons");
+    add_song("start over", "imagine dragons");
+    add_song("formidable", "stromae");
+    add_song("kiss from a rose", "seal");
+    add_song("wind of change", "scorpions");
+    add_song("losing my religion", "rem");
+    add_song("arms", "christina perri");
 
-    
+
+
     //add_song("hwang", "katie");
 
     print_library();
