@@ -167,22 +167,13 @@ void shuffle(int num_songs){
       //printf("leave?\n");
       song_node * random_pick = random_song(song_lists[picker]);
       printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
-      /*
+      
       store[i] = random_pick;
 
-      char * temp_name = random_pick -> name;
-      char * temp_artist = random_pick -> artist;
-
-      printf("%s\n", temp_name);
-      printf("%s\n", temp_artist);
-
-      remove_song(temp_name, temp_artist);
-      remove_song("we are", "ke$ha");
-      print_library();
-      */
+      remove_song(random_pick -> name, random_pick -> artist);
+      //print_library();
 
   }
-/*
     i = 0;
 
     for (; i < num_songs; i++){
@@ -190,7 +181,6 @@ void shuffle(int num_songs){
         add_song(store[i] -> name, store[i] -> artist);
 
     }
-    */
 }
 
 void free_library(){
@@ -268,7 +258,6 @@ int main(){
 
     printf("TESTING ADDING SONGS/PRINT LIBRARY\n\n");
 
-    //FOR SOME REASON THE ADD SONGS WORKS DOESN'T WORK IF THE ARTIST DOUBLE UP, BUT IS OKAY WITH A
 
     add_song("skyfall", "adele");
     add_song("hello", "adele");
@@ -282,6 +271,16 @@ int main(){
     add_song("sk8tr boy", "lavigne");
     add_song("human", "the killers");
     add_song("mr. brightside", "the killers");
+    add_song("rap god", "eminiem");
+    add_song("the way life goes", "lil uzi vert");
+    add_song("glorious", "macklemore");
+    add_song("piano man", "billy joel");
+    add_song("i want it that way", "backstreet boys");
+    add_song("ra ra rasputing", "boney m");
+    add_song("symphony 40.5", "bozart");
+    add_song("love story", "taylor swift");
+
+    
     //add_song("hwang", "katie");
 
     print_library();
