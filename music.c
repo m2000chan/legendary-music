@@ -119,11 +119,21 @@ song_node * remove_song(char * title, char * singer){
     char x = singer[0];
 
     song_node * start = song_lists[x-97];
-    if (song_search(title, singer) == start) {
-      printf("THTHT");
+
+    if (song_search(title, singer) == start &&
+        !(song_search(title, singer) -> next)) {//if first and only song in linked list
+          //printf("%p\n", start);
+          //printf("%p\n", song_search(title, singer));
+          //print_list(start);
       song_lists[x-97] = NULL;
+      //print_list(start);
       return start;
 
+    }
+
+    if (song_search(title, singer) == start) {
+      song_lists[x-97] = song_lists[x-97] -> next;
+      return start;
     }
 
     return remove_node(start, title, singer);
@@ -317,15 +327,23 @@ int main(){
 
     printf("\n============\n\n");
 
-    printf("TESTING REMOVE SONG: Removing drive by - train\n\n");
+    printf("TESTING REMOVE SONG: Removing drive by (train)\n\n");
 
     remove_song("drive by", "train");
 
-    remove_song("skyfall", "adele");
+    print_library();
+
+    printf("TESTING REMOVE SONG: Removing hello (adele)\n\n");
+
+    remove_song("hello", "adele");
+
+    print_library();
+
+    printf("TESTING REMOVE SONG: Removing we are by (ke$ha)\n\n");
 
     remove_song("we are", "ke$ha");
 
-    print_list(song_lists['k'-97]);
+    //print_list(song_lists['k'-97]);
 
     print_library();
 

@@ -105,28 +105,8 @@ song_node * insert_order(song_node * first, char * title, char * singer) {
 
     song_node * remove_node(song_node * exist_node, char * title, char * singer) {
 
-      if (strcmp(exist_node -> name, title) == 0 && strcmp(exist_node -> artist, singer) == 0){
 
-        printf("CAN I SEE THIS\n");
-
-        if (exist_node -> next) {
-          printf("YES IF\n");
-          exist_node = exist_node -> next;
-        }
-        else{
-          printf("NO IF\n");
-          song_node * temp = exist_node;
-          //exist_node -> name = NULL;
-        }
-        print_list(exist_node);
-
-        return exist_node;
-
-      }
-
-
-
-      song_node *temp = malloc (sizeof( song_node));
+      song_node * temp = malloc (sizeof( song_node));
       while (exist_node &&
         (strcmp(singer, exist_node -> artist) > 0 ||
         (strcmp(singer, exist_node -> artist) == 0 &&
