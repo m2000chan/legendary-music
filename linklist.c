@@ -124,49 +124,49 @@ song_node * remove_node(song_node * exist_node, char * title, char * singer) {
 
 
 
-int main(){
-    song_node * y = create_link("skyfall", "adele");
-    print_list(y);
-    printf("\n");
-    //y = insert_front(y, "Symphony 40", "Mozart");
-    //print_list(y);
-    printf("\n");
-    y = insert_order(y, "symphony 40.5", "bozart");
-    y = insert_order(y, "piece", "aa");
-    print_list(y);
-    printf("\n");
-    y = insert_order(y, "human", "the killers");
-    print_list(y);
-    printf("\n");
-    y = insert_order(y, "mr. brightside", "the killers");
-    print_list(y);
-    printf("\n");
-
-    y = insert_order(y, "uptown girl", "billy joel");
-    print_list(y);
-    printf("\n");
-    y = insert_order(y, "waka waka", "shakira");
-    print_list(y);
-    printf("\n");
-
-    song_node *song_search = find_song(y, "uptown girl", "billy joel");
-    print_list(song_search); //prints list starting from Billy Joel
-    printf("\n");
-
-    song_node *artist_search = find_artist(y, "adele");
-    print_list(artist_search); //prints list starting from Adele
-    printf("\n");
-    printf("%d\n", get_length(y));
-
-
-    song_node *random = random_song(y);
-    print_list(random);
-    printf("\n");
-
-    remove_node(y, "uptown girl", "billy joel");
-    print_list(y);
-
-
-    return 0;
-
-}
+// int main(){
+//     song_node * y = create_link("skyfall", "adele");
+//     print_list(y);
+//     printf("\n");
+//     //y = insert_front(y, "Symphony 40", "Mozart");
+//     //print_list(y);
+//     printf("\n");
+//     y = insert_order(y, "symphony 40.5", "bozart");
+//     y = insert_order(y, "piece", "aa");
+//     print_list(y);
+//     printf("\n");
+//     y = insert_order(y, "human", "the killers");
+//     print_list(y);
+//     printf("\n");
+//     y = insert_order(y, "mr. brightside", "the killers");
+//     print_list(y);
+//     printf("\n");
+//
+//     y = insert_order(y, "uptown girl", "billy joel");
+//     print_list(y);
+//     printf("\n");
+//     y = insert_order(y, "waka waka", "shakira");
+//     print_list(y);
+//     printf("\n");
+//
+//     song_node *song_search = find_song(y, "uptown girl", "billy joel");
+//     print_list(song_search); //prints list starting from Billy Joel
+//     printf("\n");
+//
+//     song_node *artist_search = find_artist(y, "adele");
+//     print_list(artist_search); //prints list starting from Adele
+//     printf("\n");
+//     printf("%d\n", get_length(y));
+//
+//
+//     song_node *random = random_song(y);
+//     print_list(random);
+//     printf("\n");
+//
+//     remove_node(y, "uptown girl", "billy joel");
+//     print_list(y);
+//
+//
+//     return 0;
+//
+// }
