@@ -5,6 +5,7 @@
 
 song_node * song_lists[26];
 
+<<<<<<< HEAD
 song_node * add_song(char * title, char * singer){
 
     char x = singer[0];
@@ -26,6 +27,13 @@ song_node * add_song(char * title, char * singer){
     }
    
 }
+=======
+// void initialize(){
+//
+//     song_node * song_lists[26]; //Array to store each letter
+//
+// }
+>>>>>>> 090c5bc59bf862529eb5a3ae41c8c99999b1f0c6
 
 void print_library(){
     
@@ -50,7 +58,11 @@ song_node * song_search(char * Title, char * Singer){
     
 }
 
+void print_letter(char * letter){
+  char first = letter[0];
+  print_list(song_lists[first - 97]);
 
+}
 
 
 int main(){
@@ -112,9 +124,17 @@ int main(){
   printf("TESTING REMOVE NODE:\n");
   remove_node(y, "uptown girl", "billy joel");
   print_list(y);
-  printf("\n============\n");
+  printf("\n============\n\n\n");
 
+  printf("MUSIC LIBRARY TESTS\n\n\n");
+  add_song("ich lass für dich das licht an", "revolverheld");
+
+<<<<<<< HEAD
     */
+=======
+  print_letter("i");
+
+>>>>>>> 090c5bc59bf862529eb5a3ae41c8c99999b1f0c6
   return 0;
 
 }
