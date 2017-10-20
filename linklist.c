@@ -7,7 +7,7 @@
 void print_list (song_node * curr_node) {
   //printf("[");
   while (curr_node) { //while there is another node after, print value then proceed to next
-    printf("Artist: %s\t Song: %s\n", curr_node -> artist, curr_node -> name);
+    printf("\t%s\t | \t%s\n", curr_node -> artist, curr_node -> name);
     curr_node = curr_node -> next;
   }
 }
