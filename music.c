@@ -124,13 +124,13 @@ void shuffle(){
     }
     
     srand(time(NULL));
-    long random = rand() % length;
+    int r = rand();
+    long random = rand() % length - 2;
     
     int j = 0;
     
-    for (; j < random; j ++){
+    for (; j < random + 1; j ++){
     
-        
         int randy = rand() % 26;
         
         song_node * rands = random_song(song_lists[randy]);
