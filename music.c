@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "linklist.c"
+#include <time.h>
 
 song_node * song_lists[26];
 
@@ -112,6 +113,7 @@ void print_artist(char * singer){
 
 }
 
+
 // void shuffle(){
 //
 //     int length = 0;
@@ -141,12 +143,29 @@ void print_artist(char * singer){
 // }
 
 void shuffle(int num_songs){
-  srand(time(NULL));
-  int i;
-  for (i = 0; i < num_songs; i++) {
-    int randart = rand() % 27;
-    song_node * random_pick = random_song(song_lists[randart]);
-    printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
+    int i = 0;
+    
+    srand(time(NULL));
+    
+    int picker = rand() % 26;
+    
+  for (; i < num_songs; i++) {
+      
+      rand();
+      
+      picker = rand() % 26;
+      
+      while (! song_lists[picker] ){
+            
+            picker = rand() % 26;
+            
+            //printf("%d\n", picker);
+            
+      }
+      
+      //printf("leave?\n");
+      song_node * random_pick = random_song(song_lists[picker]);
+      printf("\t%s\t | \t%s\n", random_pick -> artist, random_pick -> name);
   }
 }
 
@@ -210,7 +229,7 @@ int main(){
     printf("TESTING SHUFFLE:\n\n");
 
     shuffle(5);
-
+    
     printf("\n============\n\n");
 
 

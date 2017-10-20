@@ -93,7 +93,7 @@ int get_length(song_node * exist_node){
 
 song_node * random_song(song_node * exist_node){
   int length = get_length(exist_node);
-  srand(time(NULL));
+  //srand(time(NULL));
   long random = rand() % (length + 1);
   while (random > 1){
     exist_node = exist_node -> next;
